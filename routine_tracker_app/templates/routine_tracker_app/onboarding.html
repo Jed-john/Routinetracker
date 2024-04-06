@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Onboarding</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-BBnMgT0C61oXnUQk2R+WCYrvl8k+L1LHz7US6CetIvYRQBLh1/k3wu+ZVqopI2qWfY9oJeUJtK0y4N8bb9pW+A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        margin-bottom: 40px;
+      }
+
+      .logo img {
+        height: 50px;
+        margin-right: 10px;
+      }
+
+      .logo span {
+        color: #1e3a6f;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  margin: 5px;
+  background-color: #315fa9;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #000000;
+  border: 2px solid #1e3a6f; /* add border */
+  padding: 10px; /* add padding */
+  box-sizing: border-box; /* include padding in element's width */
+}
+
+
+
+
+.checkmark {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid #f6f7f9;
+  margin-left: 10px;
+}
+
+.selected .checkmark {
+  background-color: #f4f5f6;
+}
+
+.selected .checkmark::before {
+  content: '\f00c'; /* FontAwesome checkmark icon */
+  font-family: 'FontAwesome';
+  color: white;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+      h1 {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #1e3a6f;
+        text-align: center;
+      }
+
+      
+    .slider-container {
+    width: 100%; /* set the container width */
+    overflow: hidden; /* hide overflow */
+    display: flex; /* use flexbox layout */
+  }
+  .slider-page {
+    width: 80%; /* set the page width equal to container width */
+  }
+    </style>
+  </head>
+  <body>
+    {% load static%}
+    <div class="container">
+      <div class="logo">
+        <img src="{% static 'css/dayfablogo.png.png' %}">
+        <span>Day-Fab</span>
+      </div>
+
+      
+      <div class="slider">
+        <div class="slider-pages">
+          <div class="slider-page active" id="page1">
+            <h1><h1>What do you want to achieve?</h1>
+            <div class="options">
+              <div class="option" onclick="toggleSelected(this)">
+                Work Out and Yoga
+                <span class="checkmark"></span>
+              </div>
+              <div class="option" onclick="toggleSelected(this)">
+                Cope with anxiety, stress
+                <span class="checkmark"></span>
+              </div>
+              <div class="option" onclick="toggleSelected(this)">
+                Healthy relationships with people around you
+                <span class="checkmark"></span>
+              </div>
+              <div class="option" onclick="toggleSelected(this)">
+                  Be more Productive
+                  <span class="checkmark"></span>
+                </div>
+              <div class="option" onclick="toggleSelected(this)">
+                  Improve self-esteem
+                  <span class="checkmark"></span>
+                </div>
+                <div class="option" onclick="toggleSelected(this)">
+                  Healthy relationships
+                  <span class="checkmark"></span>
+                </div>
+                <button onclick="nextPage()">Next</button>
+            </div>
+              </div>
+            </h1>
+          </div>
+
+
+          <div class="slider-page" id="page2" hidden>
+            <h1><h1>What current challenges do you need help with?</h1>
+            <div class="options">
+              <div class="option" onclick="toggleSelected(this)">
+                Drug Addiction
+                <span class="checkmark"></span>
+              </div>
+              <div class="option" onclick="toggleSelected(this)">
+                Excessive social media
+                <span class="checkmark"></span>
+              </div>
+              <div class="option" onclick="toggleSelected(this)">
+                Procastination
+                <span class="checkmark"></span>
+              </div>
+              <div class="option" onclick="toggleSelected(this)">
+                  Low self-esteem
+                  <span class="checkmark"></span>
+                </div>
+                <button onclick="nextPage()">Next</button>
+            </div>
+              </div> </h1>
+          </div>
+
+        
+          <div class="slider-page" id="page3" hidden>
+            <h1><h1>How would you describe your current routine?</h1>
+            <div class="options">
+              <div class="option" onclick="toggleSelected(this)">
+                No,I don't have any
+                <span class="checkmark"></span>
+              </div>
+              <div class="option" onclick="toggleSelected(this)">
+                Quite non-adherent
+                <span class="checkmark"></span>
+              </div>
+              <div class="option" onclick="toggleSelected(this)">
+                I try
+                <span class="checkmark"></span>
+              </div>
+              <div class="option" onclick="toggleSelected(this)">
+                  It is Okay
+                  <span class="checkmark"></span>
+                </div>
+              <div class="option" onclick="toggleSelected(this)">
+                  Yes I have routine, and i adhere to it
+                  <span class="checkmark"></span>
+                </div>
+                <button onclick="createAccount()">Create Account</button>
+            </div></h1>
+            
+          </div>
+          
+
+
+    <script>function toggleSelected(option) {
+        option.classList.toggle('selected');
+      }
+      </script>
+      <script>
+function nextPage() {
+  // get all slider pages
+  var pages = document.getElementsByClassName("slider-page");
+
+  // find the current active page
+  var current = 0;
+  for (var i = 0; i < pages.length; i++) {
+    if (!pages[i].hasAttribute("hidden")) {
+      current = i;
+      break;
+    }
+  }
+
+  // hide the current page
+  pages[current].setAttribute("hidden", true);
+
+  // show the next page
+  var next = current + 1;
+  if (next >= pages.length) {
+    next = 0;
+  }
+  pages[next].removeAttribute("hidden");
+}
+</script>
+  </body>
+</html>

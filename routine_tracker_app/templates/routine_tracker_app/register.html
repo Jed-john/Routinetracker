@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+  #register-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+#register-container div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#register-container label {
+  width: 150px;
+}
+
+#register-container input[type="text"],
+#register-container input[type="email"],
+#register-container input[type="password"] {
+  flex: 1;
+  height: 30px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  ul {
+    color: rgb(71, 19, 19);
+  }
+
+</style>
+</head>
+<body>
+    
+    <main>
+      <div id="register-form-container">
+        <div id="register-container">
+          <form id="register-form" method="POST" action="{% url 'login' %}">
+             {% csrf_token %}
+           
+            <header>
+              <nav>
+                <ul>
+                  <li>Create your account</li>
+                </ul>
+              </nav>
+            </header>
+        
+            <div>
+              <label for="first-name">Name:</label>
+              <input type="text" id="first-name" name="first_name" required>
+            </div>
+            <div>
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+          
+            <div>
+              <label for="email">Username:</label>
+              <input type="username" id="username" name="username">
+            </div>
+          
+              <div>
+                <label for="{{ form.password1.id_for_label }}">Password:</label>
+                {{ form.password1 }}
+              </div>
+              
+              <div>
+                <label for="{{ form.password2.id_for_label }}">Confirm Password:</label>
+                {{ form.password2 }}
+                {% if form.password2.value and form.errors.password2 %}
+                  <div class="error-message">{{ form.errors.password2 }}</div>
+                {% endif %}
+              </div>
+              <div class="password-rules">
+                <ul>
+                  
+                  Your password must contain at least 8 characters,Your password can’t be a commonly used password,Your password can’t be entirely numeric,
+                  
+                </ul>
+              </div>
+
+            
+            <div>
+              <button type="submit">Register</button>  
+            </div>
+          </form>
+        </div>
+        <div class="login-message">
+          <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+        </div>
+      </div>
+      
+
+    </main>
+      
+</body>
+</html>

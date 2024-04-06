@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Login</title>
+<style>
+
+body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+    .loginform-container{
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: blanchedalmond;
+        max-width: 400px;
+        height: 200px;
+        padding: 20px;
+
+    }
+    .username,
+.password {
+  margin-bottom: 10px;
+}
+
+.button button {
+  width: 100%;
+  padding: 10px;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+  
+
+</style>
+    </head>
+    <body>
+        <div class="loginform-container">
+          <form method="POST" action="{% url 'myhome' %}">
+            {% csrf_token %}
+            {% if messages %}
+              <ul class="messages">
+                {% for message in messages %}
+                  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+            <div class="username">
+              <label for="username">Username:</label>
+              <input type="text" id="username" name="username" required>
+            </div>
+            <div class="password">
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="password" required>
+            </div>
+            <div class="button">
+              <button type="submit" class="submit-button" id="submitButton">Submit</button>
+            </div>
+            
+          </form>
+        </div>
+    </body>
+</html>

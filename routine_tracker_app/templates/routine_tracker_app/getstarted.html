@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Get Started | Day-Fab</title>
+    {% load static%}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/getstarted.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-azGcjXsjZh3C+13y5X4dUAd+5/e9P4Wt1vScGVgi5F37uW04s3+OHm5KXdrJ7rmbcJ4ZpPNlKL2vUj+jqlO7A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+  <body>
+    <header>
+      
+    </header>
+    <main>
+      <div class="background">
+        <div class="content">
+            <div class="logo">
+                <img src="{% static 'css/dayfablogo.png.png' %}" >
+                <span>Day-Fab</span>
+              </div>
+          <h1>Your Fab-Day Guide</h1>
+          <h2>Track your Daily Routine, Create New Habits, Become Unstoppable</h2>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+        </div>
+          <hr>
+          <a href="{% url 'onboarding' %}" class="continue-button">Continue</a>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
